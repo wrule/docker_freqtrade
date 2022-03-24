@@ -86,7 +86,7 @@ class AwesomeStrategy(IStrategy):
         'buy': 'gtc',
         'sell': 'gtc'
     }
-    
+
     @property
     def plot_config(self):
         return {
@@ -131,7 +131,7 @@ class AwesomeStrategy(IStrategy):
         :param metadata: Additional information, like the currently traded pair
         :return: a Dataframe with all mandatory indicators for the strategies
         """
-        
+
         # Momentum Indicators
         # ------------------------------------
 
@@ -255,8 +255,8 @@ class AwesomeStrategy(IStrategy):
         # # SMA - Simple Moving Average
         # dataframe['sma3'] = ta.SMA(dataframe, timeperiod=3)
         # dataframe['sma5'] = ta.SMA(dataframe, timeperiod=5)
-        # dataframe['sma10'] = ta.SMA(dataframe, timeperiod=10)
-        # dataframe['sma21'] = ta.SMA(dataframe, timeperiod=21)
+        dataframe['sma10'] = ta.SMA(dataframe, timeperiod=10)
+        dataframe['sma21'] = ta.SMA(dataframe, timeperiod=21)
         # dataframe['sma50'] = ta.SMA(dataframe, timeperiod=50)
         # dataframe['sma100'] = ta.SMA(dataframe, timeperiod=100)
 
@@ -374,4 +374,3 @@ class AwesomeStrategy(IStrategy):
             ),
             'sell'] = 1
         return dataframe
-    
