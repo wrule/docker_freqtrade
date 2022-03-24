@@ -2,7 +2,7 @@
 cd ft_userdata
 docker-compose run --rm freqtrade backtesting \
   --config user_data/config.json \
-  --strategy SampleStrategy \
+  --strategy AwesomeStrategy \
   --timeframe 5m \
   --pairs BTC/USDT \
   --dry-run-wallet 1000 \
