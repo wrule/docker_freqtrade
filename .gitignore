@@ -134,3 +134,4 @@ dmypy.json
 *.sqlite-shm
 
 ft_userdata/user_data/data
+ft_userdata/user_data/backtest_results
