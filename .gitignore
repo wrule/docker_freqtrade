@@ -132,3 +132,5 @@ dmypy.json
 *.sqlite3
 *.sqlite-wal
 *.sqlite-shm
+
+ft_userdata/user_data/data
