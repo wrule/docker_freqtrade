@@ -356,6 +356,9 @@ class AwesomeStrategy(IStrategy):
             ),
             'buy'] = 1
 
+        print("数据：")
+        print(dataframe.tail())
+
         return dataframe
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
