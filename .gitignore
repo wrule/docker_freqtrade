@@ -135,4 +135,5 @@ dmypy.json
 
 ft_userdata/user_data/data
 ft_userdata/user_data/backtest_results
+ft_userdata/user_data/out
 report.txt

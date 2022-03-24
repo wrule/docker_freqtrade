@@ -16,6 +16,7 @@ import pandas_ta as pta
 import freqtrade.vendor.qtpylib.indicators as qtpylib
 
 pd.set_option('display.max_columns', None)
+pd.set_option('display.max_rows', None)
 
 class AwesomeStrategy(IStrategy):
     """
@@ -357,8 +358,8 @@ class AwesomeStrategy(IStrategy):
             ),
             'buy'] = 1
 
-        print("数据：")
-        print(dataframe.tail(300))
+        print("输出数据中")
+        dataframe.to_csv('user_data/out/out.csv')
 
         return dataframe
 
