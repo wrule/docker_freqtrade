@@ -15,6 +15,7 @@ import talib.abstract as ta
 import pandas_ta as pta
 import freqtrade.vendor.qtpylib.indicators as qtpylib
 
+pd.set_option('display.max_columns', None)
 
 class AwesomeStrategy(IStrategy):
     """
@@ -357,7 +358,7 @@ class AwesomeStrategy(IStrategy):
             'buy'] = 1
 
         print("数据：")
-        print(dataframe.tail())
+        print(dataframe.tail(300))
 
         return dataframe
 
