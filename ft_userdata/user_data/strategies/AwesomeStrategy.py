@@ -360,7 +360,7 @@ class AwesomeStrategy(IStrategy):
         dataframe.loc[
             (
                 (dataframe['srsi_k'] > dataframe['srsi_d']) &
-                (dataframe['srsi_k'].shift(1) <= dataframe['srsi_d']).shift(1) &
+                # (dataframe['srsi_k'].shift(1) <= dataframe['srsi_d']).shift(1) &
                 (dataframe['volume'] > 0)
             ),
             'buy'] = 1
@@ -380,7 +380,7 @@ class AwesomeStrategy(IStrategy):
         dataframe.loc[
             (
                 (dataframe['srsi_k'] < dataframe['srsi_d']) &
-                (dataframe['srsi_k'].shift(1) >= dataframe['srsi_d']).shift(1) &
+                # (dataframe['srsi_k'].shift(1) >= dataframe['srsi_d']).shift(1) &
                 (dataframe['volume'] > 0)
             ),
             'sell'] = 1
