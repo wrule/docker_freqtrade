@@ -40,12 +40,12 @@ class AwesomeStrategy(IStrategy):
     INTERFACE_VERSION = 2
 
     # Optimal timeframe for the strategy.
-    timeframe = '15m'
+    timeframe = '2h'
 
     # Minimal ROI designed for the strategy.
     # This attribute will be overridden if the config file contains "minimal_roi".
     minimal_roi = {
-        "0": 0.02
+        "0": 1e6,
     }
 
     # Optimal stoploss designed for the strategy.
@@ -127,10 +127,10 @@ class AwesomeStrategy(IStrategy):
         :param metadata: Additional information, like the currently traded pair
         :return: a Dataframe with all mandatory indicators for the strategies
         """
-        rsi = ta.RSI(dataframe, timeperiod = 21)
-        period = 28
-        smoothD = 14
-        SmoothK = 7
+        rsi = ta.RSI(dataframe, timeperiod = 8)
+        period = 49
+        smoothD = 27
+        SmoothK = 8
         stochrsi  = (rsi - rsi.rolling(period).min()) / (rsi.rolling(period).max() - rsi.rolling(period).min())
         dataframe['srsi_k'] = stochrsi.rolling(SmoothK).mean() * 100
         dataframe['srsi_d'] = dataframe['srsi_k'].rolling(smoothD).mean()
