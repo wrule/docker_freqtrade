@@ -40,7 +40,7 @@ class AwesomeStrategy(IStrategy):
     INTERFACE_VERSION = 2
 
     # Optimal timeframe for the strategy.
-    timeframe = '1d'
+    timeframe = '15m'
 
     # Minimal ROI designed for the strategy.
     # This attribute will be overridden if the config file contains "minimal_roi".
