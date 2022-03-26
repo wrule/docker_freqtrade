@@ -138,7 +138,7 @@ class AwesomeStrategy(IStrategy):
         # ------------------------------------
 
         # ADX
-        dataframe['adx'] = ta.ADX(dataframe)
+        # dataframe['adx'] = ta.ADX(dataframe)
 
         # # Plus Directional Indicator / Movement
         # dataframe['plus_dm'] = ta.PLUS_DM(dataframe)
@@ -177,7 +177,7 @@ class AwesomeStrategy(IStrategy):
         # dataframe['cci'] = ta.CCI(dataframe)
 
         # RSI
-        dataframe['rsi'] = ta.RSI(dataframe)
+        # dataframe['rsi'] = ta.RSI(dataframe)
 
         # # Inverse Fisher transform on RSI: values [-1.0, 1.0] (https://goo.gl/2JGGoy)
         # rsi = 0.1 * (dataframe['rsi'] - 50)
@@ -192,9 +192,9 @@ class AwesomeStrategy(IStrategy):
         # dataframe['slowk'] = stoch['slowk']
 
         # Stochastic Fast
-        stoch_fast = ta.STOCHF(dataframe)
-        dataframe['fastd'] = stoch_fast['fastd']
-        dataframe['fastk'] = stoch_fast['fastk']
+        # stoch_fast = ta.STOCHF(dataframe)
+        # dataframe['fastd'] = stoch_fast['fastd']
+        # dataframe['fastk'] = stoch_fast['fastk']
 
         # # Stochastic RSI
         # Please read https://github.com/freqtrade/freqtrade/issues/2961 before using this.
@@ -204,13 +204,13 @@ class AwesomeStrategy(IStrategy):
         # dataframe['fastk_rsi'] = stoch_rsi['fastk']
 
         # MACD
-        macd = ta.MACD(dataframe)
-        dataframe['macd'] = macd['macd']
-        dataframe['macdsignal'] = macd['macdsignal']
-        dataframe['macdhist'] = macd['macdhist']
+        # macd = ta.MACD(dataframe)
+        # dataframe['macd'] = macd['macd']
+        # dataframe['macdsignal'] = macd['macdsignal']
+        # dataframe['macdhist'] = macd['macdhist']
 
         # MFI
-        dataframe['mfi'] = ta.MFI(dataframe)
+        # dataframe['mfi'] = ta.MFI(dataframe)
 
         # # ROC
         # dataframe['roc'] = ta.ROC(dataframe)
@@ -219,17 +219,17 @@ class AwesomeStrategy(IStrategy):
         # ------------------------------------
 
         # Bollinger Bands
-        bollinger = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=20, stds=2)
-        dataframe['bb_lowerband'] = bollinger['lower']
-        dataframe['bb_middleband'] = bollinger['mid']
-        dataframe['bb_upperband'] = bollinger['upper']
-        dataframe["bb_percent"] = (
-            (dataframe["close"] - dataframe["bb_lowerband"]) /
-            (dataframe["bb_upperband"] - dataframe["bb_lowerband"])
-        )
-        dataframe["bb_width"] = (
-            (dataframe["bb_upperband"] - dataframe["bb_lowerband"]) / dataframe["bb_middleband"]
-        )
+        # bollinger = qtpylib.bollinger_bands(qtpylib.typical_price(dataframe), window=20, stds=2)
+        # dataframe['bb_lowerband'] = bollinger['lower']
+        # dataframe['bb_middleband'] = bollinger['mid']
+        # dataframe['bb_upperband'] = bollinger['upper']
+        # dataframe["bb_percent"] = (
+        #     (dataframe["close"] - dataframe["bb_lowerband"]) /
+        #     (dataframe["bb_upperband"] - dataframe["bb_lowerband"])
+        # )
+        # dataframe["bb_width"] = (
+        #     (dataframe["bb_upperband"] - dataframe["bb_lowerband"]) / dataframe["bb_middleband"]
+        # )
 
         # Bollinger Bands - Weighted (EMA based instead of SMA)
         # weighted_bollinger = qtpylib.weighted_bollinger_bands(
@@ -263,17 +263,17 @@ class AwesomeStrategy(IStrategy):
         # dataframe['sma100'] = ta.SMA(dataframe, timeperiod=100)
 
         # Parabolic SAR
-        dataframe['sar'] = ta.SAR(dataframe)
+        # dataframe['sar'] = ta.SAR(dataframe)
 
         # TEMA - Triple Exponential Moving Average
-        dataframe['tema'] = ta.TEMA(dataframe, timeperiod=9)
+        # dataframe['tema'] = ta.TEMA(dataframe, timeperiod=9)
 
         # Cycle Indicator
         # ------------------------------------
         # Hilbert Transform Indicator - SineWave
-        hilbert = ta.HT_SINE(dataframe)
-        dataframe['htsine'] = hilbert['sine']
-        dataframe['htleadsine'] = hilbert['leadsine']
+        # hilbert = ta.HT_SINE(dataframe)
+        # dataframe['htsine'] = hilbert['sine']
+        # dataframe['htleadsine'] = hilbert['leadsine']
 
         # Pattern Recognition - Bullish candlestick patterns
         # ------------------------------------
