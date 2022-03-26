@@ -203,11 +203,11 @@ class AwesomeStrategy(IStrategy):
         # dataframe['fastd_rsi'] = stoch_rsi['fastd']
         # dataframe['fastk_rsi'] = stoch_rsi['fastk']
 
-        dataframe['rsi'] = ta.RSI(dataframe, timeperiod = 21)
+        rsi = ta.RSI(dataframe, timeperiod = 21)
         period = 28
         smoothD = 14
         SmoothK = 7
-        stochrsi  = (dataframe['rsi'] - dataframe['rsi'].rolling(period).min()) / (dataframe['rsi'].rolling(period).max() - dataframe['rsi'].rolling(period).min())
+        stochrsi  = (rsi - rsi.rolling(period).min()) / (rsi.rolling(period).max() - rsi.rolling(period).min())
         dataframe['srsi_k'] = stochrsi.rolling(SmoothK).mean() * 100
         dataframe['srsi_d'] = dataframe['srsi_k'].rolling(smoothD).mean()
 
@@ -360,6 +360,7 @@ class AwesomeStrategy(IStrategy):
         dataframe.loc[
             (
                 (dataframe['srsi_k'] > dataframe['srsi_d']) &
+                (dataframe['srsi_k'].shift(1) <= dataframe['srsi_d']).shift(1) &
                 (dataframe['volume'] > 0)
             ),
             'buy'] = 1
@@ -379,6 +380,7 @@ class AwesomeStrategy(IStrategy):
         dataframe.loc[
             (
                 (dataframe['srsi_k'] < dataframe['srsi_d']) &
+                (dataframe['srsi_k'].shift(1) >= dataframe['srsi_d']).shift(1) &
                 (dataframe['volume'] > 0)
             ),
             'sell'] = 1
