@@ -370,10 +370,8 @@ class AwesomeStrategy(IStrategy):
         """
         dataframe.loc[
             (
-                (qtpylib.crossed_above(dataframe['rsi'], self.sell_rsi.value)) &  # Signal: RSI crosses above sell_rsi
-                (dataframe['tema'] > dataframe['bb_middleband']) &  # Guard: tema above BB middle
-                (dataframe['tema'] < dataframe['tema'].shift(1)) &  # Guard: tema is falling
-                (dataframe['volume'] > 0)  # Make sure Volume is not 0
+                (dataframe['close'] < dataframe['open']) &
+                (dataframe['volume'] > 0)
             ),
             'sell'] = 1
         return dataframe
