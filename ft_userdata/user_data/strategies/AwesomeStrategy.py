@@ -52,7 +52,7 @@ class AwesomeStrategy(IStrategy):
 
     # Optimal stoploss designed for the strategy.
     # This attribute will be overridden if the config file contains "stoploss".
-    stoploss = -0.10
+    stoploss = -0.90
 
     # Trailing stoploss
     trailing_stop = False
@@ -70,10 +70,6 @@ class AwesomeStrategy(IStrategy):
 
     # Number of candles the strategy requires before producing valid signals
     startup_candle_count: int = 30
-
-    # Strategy parameters
-    buy_rsi = IntParameter(10, 40, default=30, space="buy")
-    sell_rsi = IntParameter(60, 90, default=70, space="sell")
 
     # Optional order type mapping.
     order_types = {
