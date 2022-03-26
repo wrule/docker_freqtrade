@@ -45,7 +45,7 @@ class AwesomeStrategy(IStrategy):
     # Minimal ROI designed for the strategy.
     # This attribute will be overridden if the config file contains "minimal_roi".
     minimal_roi = {
-      "0": 1e9,
+        "0": 0.02
     }
 
     # Optimal stoploss designed for the strategy.
