@@ -199,9 +199,9 @@ class AwesomeStrategy(IStrategy):
         # # Stochastic RSI
         # Please read https://github.com/freqtrade/freqtrade/issues/2961 before using this.
         # STOCHRSI is NOT aligned with tradingview, which may result in non-expected results.
-        # stoch_rsi = ta.STOCHRSI(dataframe)
-        # dataframe['fastd_rsi'] = stoch_rsi['fastd']
-        # dataframe['fastk_rsi'] = stoch_rsi['fastk']
+        stoch_rsi = ta.STOCHRSI(dataframe)
+        dataframe['fastd_rsi'] = stoch_rsi['fastd']
+        dataframe['fastk_rsi'] = stoch_rsi['fastk']
 
         # MACD
         # macd = ta.MACD(dataframe)
