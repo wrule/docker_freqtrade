@@ -359,7 +359,7 @@ class AwesomeStrategy(IStrategy):
         """
         dataframe.loc[
             (
-                (dataframe['close'] > dataframe['open']) &
+                (dataframe['srsi_k'] > dataframe['srsi_d']) &
                 (dataframe['volume'] > 0)
             ),
             'buy'] = 1
@@ -378,8 +378,12 @@ class AwesomeStrategy(IStrategy):
         """
         dataframe.loc[
             (
-                (dataframe['close'] < dataframe['open']) &
+                (dataframe['srsi_k'] < dataframe['srsi_d']) &
                 (dataframe['volume'] > 0)
             ),
             'sell'] = 1
+
+        print("输出数据中")
+        dataframe.to_csv('user_data/out/out.csv')
+
         return dataframe
