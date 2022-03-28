@@ -101,16 +101,6 @@ class SRSICrossed(IStrategy):
         return []
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        """
-        Adds several different TA indicators to the given DataFrame
-
-        Performance Note: For the best performance be frugal on the number of indicators
-        you are using. Let uncomment only the indicator you are using in your strategies
-        or your hyperopt configuration, otherwise you will waste your memory and CPU usage.
-        :param dataframe: Dataframe with data from the exchange
-        :param metadata: Additional information, like the currently traded pair
-        :return: a Dataframe with all mandatory indicators for the strategies
-        """
         rsi = ta.RSI(dataframe, timeperiod = 8)
         period = 49
         smoothD = 27
@@ -121,12 +111,6 @@ class SRSICrossed(IStrategy):
         return dataframe
 
     def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        """
-        Based on TA indicators, populates the buy signal for the given dataframe
-        :param dataframe: DataFrame populated with indicators
-        :param metadata: Additional information, like the currently traded pair
-        :return: DataFrame with buy column
-        """
         dataframe.loc[
             (
                 qtpylib.crossed_above(dataframe['srsi_k'], dataframe['srsi_d']) &
@@ -140,12 +124,6 @@ class SRSICrossed(IStrategy):
         return dataframe
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        """
-        Based on TA indicators, populates the sell signal for the given dataframe
-        :param dataframe: DataFrame populated with indicators
-        :param metadata: Additional information, like the currently traded pair
-        :return: DataFrame with buy column
-        """
         dataframe.loc[
             (
                 qtpylib.crossed_above(dataframe['srsi_d'], dataframe['srsi_k']) &
