@@ -101,19 +101,22 @@ class SRSICrossed(IStrategy):
         return []
 
     def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        rsi = ta.RSI(dataframe, timeperiod = 8)
-        period = 49
-        smoothD = 27
-        SmoothK = 8
-        stochrsi  = (rsi - rsi.rolling(period).min()) / (rsi.rolling(period).max() - rsi.rolling(period).min())
-        dataframe['srsi_k'] = stochrsi.rolling(SmoothK).mean() * 100
-        dataframe['srsi_d'] = dataframe['srsi_k'].rolling(smoothD).mean()
+        dataframe.ta.stochrsi(
+          length = 49,
+          rsi_length = 8,
+          k = 8,
+          d = 27,
+          append = True,
+        )
         return dataframe
 
     def populate_buy_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe.loc[
             (
-                qtpylib.crossed_above(dataframe['srsi_k'], dataframe['srsi_d']) &
+                qtpylib.crossed_above(
+                  dataframe[f'STOCHRSIk_{49}_{8}_{8}_{27}'],
+                  dataframe[f'STOCHRSId_{49}_{8}_{8}_{27}']
+                ) &
                 (dataframe['volume'] > 0)
             ),
             'buy'] = 1
@@ -126,7 +129,10 @@ class SRSICrossed(IStrategy):
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
         dataframe.loc[
             (
-                qtpylib.crossed_above(dataframe['srsi_d'], dataframe['srsi_k']) &
+                qtpylib.crossed_above(
+                  dataframe[f'STOCHRSId_{49}_{8}_{8}_{27}'],
+                  dataframe[f'STOCHRSIk_{49}_{8}_{8}_{27}']
+                ) &
                 (dataframe['volume'] > 0)
             ),
             'sell'] = 1
