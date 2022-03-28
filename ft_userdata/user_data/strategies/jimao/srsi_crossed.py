@@ -107,8 +107,6 @@ class SRSICrossed(IStrategy):
                 (dataframe['volume'] > 0)
             ),
             'buy'] = 1
-        print("输出数据中")
-        dataframe.to_csv('user_data/out/out.csv')
         return dataframe
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
