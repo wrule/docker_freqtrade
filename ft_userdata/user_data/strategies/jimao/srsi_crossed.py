@@ -26,12 +26,15 @@ class SRSICrossed(IStrategy):
     # Minimal ROI designed for the strategy.
     # This attribute will be overridden if the config file contains "minimal_roi".
     minimal_roi = {
-        "0": 1e6,
+      "0": 0.5740000000000001,
+      "897": 0.248,
+      "2281": 0.095,
+      "5065": 0
     }
 
     # Optimal stoploss designed for the strategy.
     # This attribute will be overridden if the config file contains "stoploss".
-    stoploss = -0.90
+    stoploss = -0.309
 
     # Trailing stoploss
     trailing_stop = False
@@ -119,6 +122,4 @@ class SRSICrossed(IStrategy):
                 (dataframe['volume'] > 0)
             ),
             'sell'] = 1
-        print("输出数据中")
-        dataframe.to_csv('user_data/out/out.csv')
         return dataframe

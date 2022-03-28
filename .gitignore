@@ -136,5 +136,7 @@ dmypy.json
 ft_userdata/user_data/data
 ft_userdata/user_data/backtest_results
 ft_userdata/user_data/out
+ft_userdata/user_data/hyperopt_results
 report.txt
 .DS_store
+hyperopt.lock
