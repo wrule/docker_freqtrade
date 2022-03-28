@@ -6,7 +6,8 @@ docker-compose run --rm freqtrade backtesting \
   --strategy SRSICrossed \
   --timeframe 2h \
   --pairs BTC/USDT \
-  --dry-run-wallet 1000 \
+  --dry-run-wallet 100 \
+  --fee 0.0015
   # --breakdown month day \
   # --verbose \
   > report.txt
