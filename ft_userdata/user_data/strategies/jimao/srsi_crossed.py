@@ -15,9 +15,6 @@ import talib.abstract as ta
 import pandas_ta as pta
 import freqtrade.vendor.qtpylib.indicators as qtpylib
 
-pd.set_option('display.max_columns', None)
-pd.set_option('display.max_rows', None)
-
 class SRSICrossed(IStrategy):
     # Strategy interface version - allow new iterations of the strategy interface.
     # Check the documentation or the Sample strategy to get the latest version.
@@ -110,10 +107,8 @@ class SRSICrossed(IStrategy):
                 (dataframe['volume'] > 0)
             ),
             'buy'] = 1
-
         print("输出数据中")
         dataframe.to_csv('user_data/out/out.csv')
-
         return dataframe
 
     def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
@@ -126,8 +121,6 @@ class SRSICrossed(IStrategy):
                 (dataframe['volume'] > 0)
             ),
             'sell'] = 1
-
         print("输出数据中")
         dataframe.to_csv('user_data/out/out.csv')
-
         return dataframe
