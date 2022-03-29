@@ -90,6 +90,11 @@ class SRSICrossed(IStrategy):
     def informative_pairs(self):
       return []
 
+    buy_length = IntParameter(49 - 20, 49 + 20, default = 49)
+    buy_rsi_length = IntParameter(2, 30, default = 8)
+    buy_k = IntParameter(2, 30, default = 8)
+    buy_d = IntParameter(2, 60, default = 27)
+
     def populate_indicators(
       self,
       dataframe: DataFrame,
@@ -104,14 +109,16 @@ class SRSICrossed(IStrategy):
     ) -> DataFrame:
       df_kd = pta.stochrsi(
         dataframe['close'],
-        length = 49,
-        rsi_length = 8,
-        k = 8,
-        d = 27,
+        length = self.buy_length.value,
+        rsi_length = self.buy_rsi_length.value,
+        k = self.buy_k.value,
+        d = self.buy_d.value,
         append = True,
       )
-      dataframe['k'] = df_kd['STOCHRSIk_49_8_8_27']
-      dataframe['d'] = df_kd['STOCHRSId_49_8_8_27']
+      k_name = f'STOCHRSIk_{self.buy_length.value}_{self.buy_rsi_length.value}_{self.buy_k.value}_{self.buy_d.value}'
+      d_name = f'STOCHRSId_{self.buy_length.value}_{self.buy_rsi_length.value}_{self.buy_k.value}_{self.buy_d.value}'
+      dataframe['k'] = df_kd[k_name]
+      dataframe['d'] = df_kd[d_name]
       dataframe.loc[
         (
           qtpylib.crossed_above(
