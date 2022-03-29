@@ -95,13 +95,6 @@ class SRSICrossed(IStrategy):
       dataframe: DataFrame,
       metadata: dict,
     ) -> DataFrame:
-      dataframe.ta.stochrsi(
-        length = 49,
-        rsi_length = 8,
-        k = 8,
-        d = 27,
-        append = True,
-      )
       return dataframe
 
     def populate_buy_trend(
@@ -109,11 +102,21 @@ class SRSICrossed(IStrategy):
       dataframe: DataFrame,
       metadata: dict,
     ) -> DataFrame:
+      df_kd = pta.stochrsi(
+        dataframe['close'],
+        length = 49,
+        rsi_length = 8,
+        k = 8,
+        d = 27,
+        append = True,
+      )
+      dataframe['k'] = df_kd['STOCHRSIk_49_8_8_27']
+      dataframe['d'] = df_kd['STOCHRSId_49_8_8_27']
       dataframe.loc[
         (
           qtpylib.crossed_above(
-            dataframe[f'STOCHRSIk_{49}_{8}_{8}_{27}'],
-            dataframe[f'STOCHRSId_{49}_{8}_{8}_{27}'],
+            dataframe['k'],
+            dataframe['d'],
           ) &
           (dataframe['volume'] > 0)
         ),
@@ -129,8 +132,8 @@ class SRSICrossed(IStrategy):
       dataframe.loc[
         (
           qtpylib.crossed_above(
-            dataframe[f'STOCHRSId_{49}_{8}_{8}_{27}'],
-            dataframe[f'STOCHRSIk_{49}_{8}_{8}_{27}'],
+            dataframe['d'],
+            dataframe['k'],
           ) &
           (dataframe['volume'] > 0)
         ),
