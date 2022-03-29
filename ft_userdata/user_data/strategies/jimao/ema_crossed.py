@@ -6,9 +6,9 @@ import freqtrade.vendor.qtpylib.indicators as qtpylib
 
 class EMACrossed(IStrategy):
   stoploss = -0.05
-  timeframe = '15m'
-  buy_ema_short = IntParameter(3, 50, default = 5)
-  buy_ema_long = IntParameter(15, 200, default = 50)
+  timeframe = '2h'
+  buy_ema_short = IntParameter(2, 80, default = 5)
+  buy_ema_long = IntParameter(2, 200, default = 50)
 
   def populate_indicators(
     self,
