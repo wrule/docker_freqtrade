@@ -112,14 +112,19 @@ class SRSICrossed(IStrategy):
             'buy'] = 1
         return dataframe
 
-    def populate_sell_trend(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        dataframe.loc[
-            (
-                qtpylib.crossed_above(
-                  dataframe[f'STOCHRSId_{49}_{8}_{8}_{27}'],
-                  dataframe[f'STOCHRSIk_{49}_{8}_{8}_{27}']
-                ) &
-                (dataframe['volume'] > 0)
-            ),
-            'sell'] = 1
-        return dataframe
+    def populate_sell_trend(
+      self,
+      dataframe: DataFrame,
+      metadata: dict,
+    ) -> DataFrame:
+      dataframe.loc[
+        (
+          qtpylib.crossed_above(
+            dataframe[f'STOCHRSId_{49}_{8}_{8}_{27}'],
+            dataframe[f'STOCHRSIk_{49}_{8}_{8}_{27}'],
+          ) &
+          (dataframe['volume'] > 0)
+        ),
+        'sell',
+      ] = 1
+      return dataframe
