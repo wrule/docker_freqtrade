@@ -88,17 +88,21 @@ class SRSICrossed(IStrategy):
         }
 
     def informative_pairs(self):
-        return []
+      return []
 
-    def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-        dataframe.ta.stochrsi(
-          length = 49,
-          rsi_length = 8,
-          k = 8,
-          d = 27,
-          append = True,
-        )
-        return dataframe
+    def populate_indicators(
+      self,
+      dataframe: DataFrame,
+      metadata: dict,
+    ) -> DataFrame:
+      dataframe.ta.stochrsi(
+        length = 49,
+        rsi_length = 8,
+        k = 8,
+        d = 27,
+        append = True,
+      )
+      return dataframe
 
     def populate_buy_trend(
       self,
