@@ -55,10 +55,10 @@ class SRSICrossed(IStrategy):
 
   # Optional order type mapping.
   order_types = {
-      'buy': 'limit',
-      'sell': 'limit',
-      'stoploss': 'market',
-      'stoploss_on_exchange': False
+    'buy': 'limit',
+    'sell': 'limit',
+    'stoploss': 'market',
+    'stoploss_on_exchange': False
   }
 
   # Optional order time in force.
@@ -88,17 +88,17 @@ class SRSICrossed(IStrategy):
       }
 
   def informative_pairs(self):
-      return []
+    return []
 
   def populate_indicators(self, dataframe: DataFrame, metadata: dict) -> DataFrame:
-      dataframe.ta.stochrsi(
-        length = 49,
-        rsi_length = 8,
-        k = 8,
-        d = 27,
-        append = True,
-      )
-      return dataframe
+    dataframe.ta.stochrsi(
+      length = 49,
+      rsi_length = 8,
+      k = 8,
+      d = 27,
+      append = True,
+    )
+    return dataframe
 
   def populate_buy_trend(
     self,
