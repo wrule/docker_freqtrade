@@ -1,7 +1,7 @@
 #!/bin/bash
 cd ft_userdata
 docker-compose run --rm freqtrade hyperopt \
-  --hyperopt-loss SharpeHyperOptLossDaily \
+  --hyperopt-loss SortinoHyperOptLossDaily \
   --spaces roi stoploss trailing \
   --timeframe 2h \
   --pairs BTC/USDT \
@@ -10,4 +10,5 @@ docker-compose run --rm freqtrade hyperopt \
   --strategy SRSICrossed \
   --dry-run-wallet 100 \
   --config user_data/config.json \
-  --epochs 100000
+  --epochs 100 \
+  --job-workers -2
