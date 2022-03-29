@@ -5,21 +5,21 @@
     "sell": {},
     "protection": {},
     "roi": {
-      "0": 0.502,
-      "839": 0.23199999999999998,
-      "1690": 0.051,
-      "2708": 0
+      "0": 0.393,
+      "460": 0.194,
+      "1199": 0.083,
+      "3430": 0
     },
     "stoploss": {
-      "stoploss": -0.18
+      "stoploss": -0.142
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.087,
-      "trailing_stop_positive_offset": 0.144,
+      "trailing_stop_positive": 0.269,
+      "trailing_stop_positive_offset": 0.31,
       "trailing_only_offset_is_reached": false
     }
   },
   "ft_stratparam_v": 1,
-  "export_time": "2022-03-29 14:23:00.702030+00:00"
+  "export_time": "2022-03-29 14:24:57.966689+00:00"
 }
