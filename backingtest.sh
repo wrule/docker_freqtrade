@@ -7,7 +7,7 @@ docker-compose run --rm freqtrade backtesting \
   --timeframe 2h \
   --pairs BTC/USDT \
   --dry-run-wallet 100 \
-  --fee 0.0015
-  # --breakdown month day \
-  # --verbose \
+  --fee 0.0015 \
+  --breakdown month \
+  --verbose \
   > report.txt
