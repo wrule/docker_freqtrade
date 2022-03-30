@@ -26,21 +26,18 @@ class SRSICrossedR(IStrategy):
     # Minimal ROI designed for the strategy.
     # This attribute will be overridden if the config file contains "minimal_roi".
     minimal_roi = {
-      "0": 0.6599999999999999,
-      "955": 0.285,
-      "2381": 0.107,
-      "5081": 0
+      "0": 1e6,
     }
 
     # Optimal stoploss designed for the strategy.
     # This attribute will be overridden if the config file contains "stoploss".
-    stoploss = -0.348
+    stoploss = -0.99
 
     # Trailing stoploss
-    trailing_stop = True
-    trailing_only_offset_is_reached = True
-    trailing_stop_positive = 0.276
-    trailing_stop_positive_offset = 0.313  # Disabled / not configured
+    # trailing_stop = True
+    # trailing_only_offset_is_reached = True
+    # trailing_stop_positive = 0.276
+    # trailing_stop_positive_offset = 0.313  # Disabled / not configured
 
     # Run "populate_indicators()" only for new candle.
     process_only_new_candles = False
