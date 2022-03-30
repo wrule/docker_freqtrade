@@ -19,12 +19,12 @@
     "buy": {
       "buy_d": 27,
       "buy_k": 8,
-      "buy_length": 47,
+      "buy_length": 49,
       "buy_rsi_length": 8
     },
     "sell": {},
     "protection": {}
   },
   "ft_stratparam_v": 1,
-  "export_time": "2022-03-30 05:52:41.343863+00:00"
+  "export_time": "2022-03-30 11:54:43.132998+00:00"
 }
