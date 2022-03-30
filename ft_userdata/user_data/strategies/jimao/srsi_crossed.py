@@ -90,10 +90,10 @@ class SRSICrossed(IStrategy):
     def informative_pairs(self):
       return []
 
-    buy_length = IntParameter(49 - 5, 49 + 5, default = 49)
-    buy_rsi_length = IntParameter(8 - 5, 8 + 5, default = 8)
-    buy_k = IntParameter(8 - 5, 8 + 5, default = 8)
-    buy_d = IntParameter(27 - 5, 27 + 5, default = 27)
+    buy_length = IntParameter(49 - 15, 49 + 15, default = 49)
+    buy_rsi_length = IntParameter(8 - 5, 8 + 20, default = 8)
+    buy_k = IntParameter(8 - 5, 8 + 20, default = 8)
+    buy_d = IntParameter(27 - 15, 27 + 15, default = 27)
 
     def populate_indicators(
       self,
