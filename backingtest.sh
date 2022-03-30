@@ -3,7 +3,7 @@ cd ft_userdata
 docker-compose run --rm freqtrade backtesting \
   --config user_data/config.json \
   --strategy-path user_data/strategies/jimao \
-  --strategy SRSICrossed \
+  --strategy SRSICrossedR \
   --timeframe 2h \
   --pairs BTC/USDT \
   --dry-run-wallet 100 \
