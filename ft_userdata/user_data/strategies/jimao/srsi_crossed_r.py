@@ -34,7 +34,7 @@ class SRSICrossedR(IStrategy):
 
     # Optimal stoploss designed for the strategy.
     # This attribute will be overridden if the config file contains "stoploss".
-    stoploss = -0.45
+    stoploss = -0.045
 
     # Trailing stoploss
     # trailing_stop = True

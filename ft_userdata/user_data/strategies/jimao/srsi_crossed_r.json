@@ -1,0 +1,25 @@
+{
+  "strategy_name": "SRSICrossedR",
+  "params": {
+    "stoploss": {
+      "stoploss": -0.45
+    },
+    "buy": {},
+    "sell": {},
+    "protection": {},
+    "roi": {
+      "0": 0.611,
+      "908": 0.20700000000000002,
+      "1166": 0.107,
+      "3630": 0
+    },
+    "trailing": {
+      "trailing_stop": true,
+      "trailing_stop_positive": 0.157,
+      "trailing_stop_positive_offset": 0.251,
+      "trailing_only_offset_is_reached": false
+    }
+  },
+  "ft_stratparam_v": 1,
+  "export_time": "2022-03-30 16:11:39.289516+00:00"
+}
