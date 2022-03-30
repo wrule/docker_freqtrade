@@ -26,7 +26,10 @@ class SRSICrossedR(IStrategy):
     # Minimal ROI designed for the strategy.
     # This attribute will be overridden if the config file contains "minimal_roi".
     minimal_roi = {
-      "0": 1e6,
+      "0": 0.661,
+      "934": 0.287,
+      "2353": 0.106,
+      "5045": 0,
     }
 
     # Optimal stoploss designed for the strategy.
