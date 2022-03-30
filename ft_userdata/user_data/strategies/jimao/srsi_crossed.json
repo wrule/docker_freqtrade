@@ -2,29 +2,29 @@
   "strategy_name": "SRSICrossed",
   "params": {
     "roi": {
-      "0": 0.558,
-      "889": 0.187,
-      "2303": 0.103,
-      "4443": 0
+      "0": 0.6599999999999999,
+      "955": 0.285,
+      "2381": 0.107,
+      "5081": 0
     },
     "stoploss": {
-      "stoploss": -0.28
+      "stoploss": -0.348
     },
     "trailing": {
       "trailing_stop": true,
-      "trailing_stop_positive": 0.136,
-      "trailing_stop_positive_offset": 0.161,
+      "trailing_stop_positive": 0.276,
+      "trailing_stop_positive_offset": 0.313,
       "trailing_only_offset_is_reached": true
     },
     "buy": {
-      "buy_d": 26,
+      "buy_d": 27,
       "buy_k": 8,
-      "buy_length": 54,
+      "buy_length": 47,
       "buy_rsi_length": 8
     },
     "sell": {},
     "protection": {}
   },
   "ft_stratparam_v": 1,
-  "export_time": "2022-03-30 00:08:00.002307+00:00"
+  "export_time": "2022-03-30 05:52:41.343863+00:00"
 }

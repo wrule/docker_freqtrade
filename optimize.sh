@@ -10,5 +10,5 @@ docker-compose run --rm freqtrade hyperopt \
   --strategy SRSICrossed \
   --dry-run-wallet 100 \
   --config user_data/config.json \
-  --epochs 1000 \
+  --epochs 4000 \
   --job-workers -2
