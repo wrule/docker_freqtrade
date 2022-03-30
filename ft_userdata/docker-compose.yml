@@ -20,6 +20,10 @@ services:
     ports:
       - "127.0.0.1:8080:8080"
     # Default command used when running `docker compose up`
+    environment:
+      https_proxy: http://host.docker.internal:7890
+      http_proxy: http://host.docker.internal:7890
+      all_proxy: socks5://host.docker.internal:7890
     command: >
       trade
       --logfile /freqtrade/user_data/logs/freqtrade.log
