@@ -1,8 +1,8 @@
 #!/bin/bash
 cd ft_userdata
 docker-compose run --rm freqtrade hyperopt \
-  --hyperopt-loss SharpeHyperOptLossDaily \
-  --spaces roi trailing \
+  --hyperopt-loss MaxDrawDownHyperOptLoss \
+  --spaces roi \
   --timeframe 2h \
   --pairs BTC/USDT \
   --fee 0.0015 \
