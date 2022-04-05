@@ -106,6 +106,7 @@ class SRSICrossedR(IStrategy):
         d = self.r_d,
         append = True,
       )
+      dataframe.to_csv('user_data/out/out.csv')
       return dataframe
 
     def populate_buy_trend(
